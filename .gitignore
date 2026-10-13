@@ -1,0 +1,16 @@
+# Build results
+bin/
+obj/
+nupkg/
+*.nupkg
+*.snupkg
+
+# IDE files
+.idea/
+.vscode/
+*.user
+
+# Local caches
+.local/
+node_modules/
+.pnpm-store/

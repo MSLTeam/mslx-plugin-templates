@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageId>MSLX.Plugin.Templates</PackageId>
+    <Title>MSLX 插件模板 (dotnet new template)</Title>
+    <Version>1.0.0</Version>
+    <Authors>MSLTeam</Authors>
+    <Company>MSLTeam</Company>
+    <Description>MSLX 插件脚手架模板，支持通过 dotnet new 快速创建规范的 MSLX 前后端插件项目，内置控制器路由、嵌入式前端资产以及 ILRepack 依赖合并支持。</Description>
+    <PackageTags>dotnet-new;templates;mslx;plugin</PackageTags>
+    <PackageProjectUrl>https://github.com/MSLTeam/mslx-plugin-templates</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MSLTeam/mslx-plugin-templates</RepositoryUrl>
+    <TargetFramework>net10.0</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="templates\**\*"
+             Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\Frontend\node_modules\**;templates\**\Frontend\.pnpm-store\**;templates\**\Library\**;templates\**\.local\**">
+      <PackagePath>content/%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
+    </Content>
+  </ItemGroup>
+
+</Project>

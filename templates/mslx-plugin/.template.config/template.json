@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "MSLTeam",
+  "classifications": ["MSLX", "Plugin", "Web"],
+  "name": "MSLX 插件项目模板",
+  "identity": "MSLX.Plugin.Template",
+  "shortName": "mslx-plugin",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "MSLX.Plugin.Demo",
+  "preferNameDirectory": true,
+  "specialCustomOperations": {
+    "**/*.csproj": {
+      "conditional": null
+    },
+    "**/*.targets": {
+      "conditional": null
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "pack/**",
+            "nupkg/**",
+            ".git/**",
+            ".idea/**",
+            ".vscode/**",
+            ".local/**",
+            "Library/**",
+            "Frontend/node_modules/**",
+            "Frontend/.pnpm-store/**",
+            "*.user"
+          ]
+        }
+      ]
+    }
+  ],
+  "symbols": {
+    "plugin-id": {
+      "type": "parameter",
+      "datatype": "string",
+      "replaces": "mslx-plugin-demo",
+      "defaultValue": "mslx-plugin-custom",
+      "description": "插件唯一标识符（规范为 mslx-plugin-xxx）",
+      "displayName": "插件 ID"
+    },
+    "plugin-name": {
+      "type": "parameter",
+      "datatype": "string",
+      "replaces": "MSLX 示例插件",
+      "defaultValue": "MSLX 自定义插件",
+      "description": "插件中文/显示名称",
+      "displayName": "插件名称"
+    },
+    "plugin-author": {
+      "type": "parameter",
+      "datatype": "string",
+      "replaces": "luluxiaoyu",
+      "defaultValue": "developer",
+      "description": "插件作者/开发者名称",
+      "displayName": "插件作者"
+    },
+    "description": {
+      "type": "parameter",
+      "datatype": "string",
+      "replaces": "这是MSLX的示例插件，简单演示了一些插件可实现的功能，可以前往Github查看具体实现~",
+      "defaultValue": "基于 MSLX.SDK 构建的插件项目",
+      "description": "插件描述信息",
+      "displayName": "插件描述"
+    },
+    "frontend-plugin-name": {
+      "type": "generated",
+      "generator": "regex",
+      "parameters": {
+        "source": "name",
+        "steps": [
+          {
+            "regex": "^(.*)$",
+            "replacement": "$1"
+          }
+        ]
+      },
+      "replaces": "DemoMenuPlugin"
+    }
+  }
+}
